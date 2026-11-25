@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propuesta Cooper Bebidas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Propuesta de trabajo de 3 meses para Aloe Cooper, Hidra Cooper y Limonadas Cooper (DESCOESA)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Concepto: una sola casa (azul DESCOESA) con tres personalidades; cada bebida trae el color de su etiqueta. */
+:root{
+  color-scheme: light;
+  --navy:#0E2A5C; --navy-2:#1C3F7E;
+  --ink:#1F2433; --ink-2:#525A70; --line:#DDE3EE;
+  --bg:#FFFFFF; --bg-soft:#F3F6FB;
+  --aloe:#4E8F12; --aloe-ink:#3A6B0C; --aloe-soft:#EEF6E3; --aloe-teal:#1FA3BF;
+  --hidra:#121417; --hidra-blue:#1696D8; --hidra-ink:#0B6FA3; --hidra-soft:#E6F3FB;
+  --limo:#2F5A36; --limo-yellow:#E8C21A; --limo-soft:#F7F2DC;
+  --warn:#9A4A00; --warn-soft:#FFF1E0;
+  --ok:#1E7A46; --ok-soft:#E3F4EA;
+  --font-display:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --radius:16px; --nav-h:58px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--font-body);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;margin:0 0 .5em;color:var(--navy);text-wrap:balance}
+h1{font-size:clamp(2rem,6.4vw,3.4rem);font-weight:900;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4.6vw,2.3rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:clamp(1.12rem,3vw,1.35rem);font-weight:800}
+p{margin:0 0 1em}
+b,strong{font-weight:700}
+:focus-visible{outline:3px solid var(--hidra-blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font:700 .78rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-2);margin-bottom:.7rem}
+.small{font-size:.9rem;color:var(--ink-2)}
+.tabular{font-variant-numeric:tabular-nums}
+.sub{margin-top:48px}
+
+/* Navegación */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:#fff}
+.nav .wrap{display:flex;align-items:center;gap:16px;min-height:var(--nav-h)}
+.brand{font:900 1.05rem/1 var(--font-display);letter-spacing:.02em;color:#fff;text-decoration:none;white-space:nowrap}
+.brand span{font-weight:500;opacity:.75}
+.nav ol{display:flex;gap:4px;margin:0 0 0 auto;padding:0;list-style:none;overflow-x:auto;scrollbar-width:none}
+.nav ol::-webkit-scrollbar{display:none}
+.nav a.chap{display:flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font:600 .9rem/1 var(--font-body);padding:10px 12px;border-radius:999px;white-space:nowrap;opacity:.85}
+.nav a.chap:hover,.nav a.chap.on{background:rgba(255,255,255,.14);opacity:1}
+.nav a.chap i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--navy);font:800 .75rem/1 var(--font-display)}
+
+
+/* Portada */
+.hero{background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);padding-block:48px 28px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:center}
+.hero h1 em{font-style:normal;color:var(--navy-2)}
+.hero .lead{font-size:1.12rem;color:var(--ink-2);margin:0}
+.hero .meta{font-size:.95rem;color:var(--ink-2);margin-top:.8rem}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;text-decoration:none;font:700 1rem/1 var(--font-body);padding:14px 22px;border-radius:999px;margin-top:1.2rem}
+.btn:hover{background:var(--navy-2)}
+.shelf{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:6px;padding:24px 4px 0;min-width:0}
+.shelf img{width:calc((100% - 40px) / 10);max-width:58px;min-width:0;filter:drop-shadow(0 8px 10px rgba(14,42,92,.18))}
+.shelf .tall{width:calc((100% - 40px) / 9.2);max-width:64px}
+.shelf::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:14px;border-radius:6px;background:linear-gradient(180deg,#d9e1ee,#c6d1e3)}
+.shelf-caption{display:flex;justify-content:space-around;margin-top:22px;font:700 .78rem/1.2 var(--font-display);text-transform:uppercase;letter-spacing:.08em}
+.shelf-caption span:nth-child(1){color:var(--aloe-ink)} .shelf-caption span:nth-child(2){color:var(--hidra-ink)} .shelf-caption span:nth-child(3){color:var(--limo)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero{padding-block:32px 20px}}
+
+/* Bandas */
+.band{padding-block:64px}
+.band.soft{background:var(--bg-soft)}
+.cap-head{display:flex;gap:16px;align-items:center;margin-bottom:28px}
+.cap-num{flex:none;width:52px;height:52px;border-radius:14px;background:var(--navy);color:#fff;display:grid;place-items:center;font:900 1.5rem/1 var(--font-display)}
+.cap-head .eyebrow{margin-bottom:.35rem}
+.cap-head h2{margin:0}
+
+/* Resumen */
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.sum{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}
+.sum .tag{display:inline-block;font:800 .7rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.1em;padding:6px 10px;border-radius:999px;margin-bottom:10px}
+.sum.f .tag{background:var(--ok-soft);color:var(--ok)} .sum.p .tag{background:var(--warn-soft);color:var(--warn)} .sum.o .tag{background:var(--hidra-soft);color:var(--hidra-ink)}
+.sum strong{display:block;font:800 1.2rem/1.25 var(--font-display);color:var(--navy)}
+.sum p{margin:6px 0 0;font-size:.95rem;color:var(--ink-2)}
+.proposal{background:var(--navy);color:#fff;border-radius:var(--radius);padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;align-items:center}
+.proposal .lbl{font:800 .78rem/1.2 var(--font-display);text-transform:uppercase;letter-spacing:.1em;opacity:.8}
+.proposal ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.proposal li{background:rgba(255,255,255,.12);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.98rem}
+@media (max-width:820px){.summary{grid-template-columns:1fr}.proposal{grid-template-columns:1fr}}
+
+/* Capítulo 1 */
+.reviewed{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 32px}
+.reviewed div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center;min-width:0}
+.reviewed b{display:block;font:900 1.9rem/1 var(--font-display);color:var(--navy);margin-bottom:6px}
+.reviewed span{font-size:.85rem;color:var(--ink-2);line-height:1.35;display:block}
+@media (max-width:820px){.reviewed{grid-template-columns:repeat(2,1fr)}.reviewed div:last-child{grid-column:1/-1}}
+.lines{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.line{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.line-top{display:flex;justify-content:center;align-items:flex-end;gap:6px;padding:22px 12px 0;height:196px}
+.line-top img{height:166px;width:auto}
+.line.aloe .line-top{background:linear-gradient(180deg,var(--aloe-soft),#fff)}
+.line.hidra .line-top{background:linear-gradient(180deg,var(--hidra-soft),#fff)}
+.line.limo .line-top{background:linear-gradient(180deg,var(--limo-soft),#fff)}
+.line-body{padding:16px 20px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.line h3{margin:0}
+.line.aloe h3{color:var(--aloe-ink)} .line.hidra h3{color:var(--hidra)} .line.limo h3{color:var(--limo)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 .8rem/1 var(--font-body);padding:7px 10px;border-radius:999px;background:var(--bg-soft);color:var(--ink-2);white-space:nowrap}
+.line.aloe .chip{background:var(--aloe-soft);color:var(--aloe-ink)}
+.line.hidra .chip{background:var(--hidra-soft);color:var(--hidra-ink)}
+.line.limo .chip{background:var(--limo-soft);color:var(--limo)}
+.line dl{margin:auto 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.93rem;padding-top:10px;border-top:1px dashed var(--line)}
+.line dt{color:var(--ink-2)} .line dd{margin:0;font-weight:700;text-align:right}
+@media (max-width:900px){.lines{grid-template-columns:1fr}}
+.pluses{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pluses span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:600;font-size:.95rem}
+.pluses span::before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ok-soft);color:var(--ok);font:900 .75rem/1 var(--font-display)}
+
+/* Capítulo 2: problemas */
+.issues{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.issue{background:#fff;border:1px solid var(--line);border-top:5px solid var(--warn);border-radius:12px;padding:16px 18px;min-width:0}
+.issue .big{font:900 1.6rem/1 var(--font-display);color:var(--warn);margin-bottom:6px}
+.issue h4{margin:0;font-size:1.02rem}
+@media (max-width:820px){.issues{grid-template-columns:1fr}}
+.minor{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.minor span{background:var(--warn-soft);color:#5A2E00;border-radius:999px;padding:8px 14px;font-size:.9rem;font-weight:600}
+
+/* Capítulo 2: quién anuncia */
+.adwar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:16px}
+.bars{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:12px;align-items:center;font-size:.93rem}
+.bar .nm{min-width:0;line-height:1.25}
+.bar .nm small{display:block;color:var(--ink-2);font-size:.78rem}
+.bar .track{height:28px;background:var(--bg-soft);border-radius:6px;display:flex;align-items:center}
+.bar .fill{height:100%;border-radius:6px;background:#C5CEDD;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font:700 .85rem/1 var(--font-body);color:var(--ink);font-variant-numeric:tabular-nums;min-width:46px}
+.bar .zero{padding-left:10px;font:700 .85rem/1 var(--font-body);color:var(--ok)}
+.adwar .fill{background:var(--warn);color:#fff}
+.bar.us .nm{font-weight:800}
+@media (max-width:560px){.bar{grid-template-columns:1fr;gap:4px}}
+.verdict{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.verdict div{border-radius:12px;padding:14px 16px;font-weight:600}
+.verdict .hot{background:var(--warn-soft);color:#5A2E00}
+.verdict .free{background:var(--ok-soft);color:#0F4A2A}
+.verdict b{display:block;font-family:var(--font-display);font-size:1.05rem}
+@media (max-width:620px){.verdict{grid-template-columns:1fr}}
+
+/* Capítulo 2: pestañas por bebida */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0}
+.tab{appearance:none;border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 18px;font:700 .98rem/1 var(--font-body);color:var(--ink-2);cursor:pointer}
+.tab[aria-selected="true"]{color:#fff}
+.tab.aloe[aria-selected="true"]{background:var(--aloe);border-color:var(--aloe)}
+.tab.hidra[aria-selected="true"]{background:var(--hidra);border-color:var(--hidra)}
+.tab.limo[aria-selected="true"]{background:var(--limo);border-color:var(--limo)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:12px}
+.panel-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+.panel-grid > div{min-width:0}
+.panel h4{margin:0 0 12px;font-size:1rem;color:var(--ink-2);font-family:var(--font-body);font-weight:700}
+.panel.aloe .bar.us .fill{background:var(--aloe);color:#fff}
+.panel.hidra .bar.us .fill{background:var(--hidra-blue);color:#fff}
+.panel.limo .bar.us .fill{background:var(--limo);color:#fff}
+.soc{width:100%;border-collapse:collapse;font-size:.92rem}
+.soc th,.soc td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.soc th{font:700 .72rem/1.2 var(--font-display);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+.soc td:nth-child(2),.soc td:nth-child(3),.soc th:nth-child(2),.soc th:nth-child(3){text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.soc tr.us td{font-weight:800}
+.soc .no{color:var(--ok);font-weight:700}
+.soc .yes{color:var(--warn);font-weight:700}
+.panel .take{margin:18px 0 0;padding:14px 16px;border-radius:12px;font-size:1.02rem;font-weight:600}
+.panel.aloe .take{background:var(--aloe-soft);color:#28480A} .panel.hidra .take{background:var(--hidra-soft);color:#08486B} .panel.limo .take{background:var(--limo-soft);color:#24432A}
+@media (max-width:820px){.panel-grid{grid-template-columns:1fr}}
+
+/* Capítulo 2: lo que hacen bien */
+.learn{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.learn div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
+.learn b{display:block;font:800 1.05rem/1.25 var(--font-display);color:var(--navy);margin-bottom:4px}
+.learn span{font-size:.93rem;color:var(--ink-2)}
+@media (max-width:820px){.learn{grid-template-columns:1fr}}
+.source{font-size:.82rem;color:var(--ink-2);margin-top:14px}
+
+/* Capítulo 3 */
+.idea{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:28px}
+.house{display:flex;flex-direction:column;align-items:center;gap:8px}
+.house .roof{font:900 1rem/1 var(--font-display);color:#fff;background:var(--navy);padding:12px 18px;border-radius:12px}
+.house .rooms{display:flex;gap:6px}
+.house .rooms span{font:800 .72rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.06em;padding:9px 10px;border-radius:8px;color:#fff}
+.house .rooms span:nth-child(1){background:var(--aloe)} .house .rooms span:nth-child(2){background:var(--hidra)} .house .rooms span:nth-child(3){background:var(--limo)}
+.idea h3{margin:0 0 6px}
+.idea p{margin:0;color:var(--ink-2)}
+.idea .small{margin-top:10px}
+@media (max-width:720px){.idea{grid-template-columns:1fr}}
+
+.months{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.month{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}
+.month .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;font:900 1rem/1 var(--font-display);margin-bottom:10px}
+.month h3{margin:0 0 10px;font-size:1.15rem}
+.month ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:.95rem}
+.month li::marker{color:var(--navy-2)}
+@media (max-width:900px){.months{grid-template-columns:1fr}}
+
+.mix{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.mx{border-radius:12px;padding:14px;min-width:0;color:#fff}
+.mx b{display:block;font:900 1.4rem/1 var(--font-display);margin-bottom:6px}
+.mx span{font-size:.88rem;opacity:.92;line-height:1.3;display:block}
+.mx.a{background:var(--aloe)} .mx.h{background:var(--hidra)} .mx.l{background:var(--limo)} .mx.n{background:var(--navy)} .mx.n2{background:var(--navy-2)}
+@media (max-width:820px){.mix{grid-template-columns:repeat(2,1fr)}}
+
+.goals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.g{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.g h4{margin:0 0 10px;font-size:.92rem;color:var(--ink-2);font-family:var(--font-body)}
+.g .from{font-size:.85rem;color:var(--ink-2)}
+.g .to{font:900 1.35rem/1.15 var(--font-display);color:var(--ok);margin-top:4px}
+@media (max-width:900px){.goals{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.goals{grid-template-columns:1fr}}
+
+.estimate{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.est{border-radius:12px;padding:16px;background:#fff;border:1px solid var(--line);min-width:0}
+.est .amt{font:900 1.4rem/1 var(--font-display);color:var(--navy)}
+.est .for{font-size:.88rem;color:var(--ink-2);margin:4px 0 8px}
+.est .res{font-weight:700}
+@media (max-width:620px){.estimate{grid-template-columns:1fr}}
+
+.disclaimer{margin-top:14px;background:var(--warn-soft);border-left:5px solid var(--warn);border-radius:12px;padding:14px 18px;color:#4A2600;font-size:.95rem;line-height:1.5}
+.disclaimer b{color:#5A2E00}
+.inc.wide{grid-column:1/-1}
+.inc.wide ul{grid-template-columns:repeat(2,1fr);column-gap:24px}
+@media (max-width:720px){.inc.wide ul{grid-template-columns:1fr}}
+
+/* Capítulo 4 */
+.two-pay{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:stretch}
+.pay{border-radius:var(--radius);padding:24px;min-width:0}
+.pay.fee{background:var(--navy);color:#fff}
+.pay.ads-pay{background:#fff;border:2px dashed #B9C4D6}
+.pay .who{font:800 .78rem/1.2 var(--font-display);text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:10px 0 6px}
+.price b{font:900 clamp(2.2rem,6vw,3rem)/1 var(--font-display);font-variant-numeric:tabular-nums}
+.pay p{margin:0;font-size:.95rem}
+.pay .later{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.22);font-size:.9rem}
+.pay.ads-pay .later{border-top-color:var(--line);color:var(--ink-2)}
+.badge{display:inline-block;background:var(--limo-yellow);color:var(--hidra);font:800 .72rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.08em;padding:6px 10px;border-radius:999px;margin-top:10px}
+.plus{display:grid;place-items:center;font:900 2rem/1 var(--font-display);color:var(--ink-2)}
+@media (max-width:820px){.two-pay{grid-template-columns:1fr}.plus{font-size:1.5rem}}
+
+.includes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+.inc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;min-width:0}
+.inc h3{font-size:1.05rem;margin:0 0 12px}
+.inc ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.inc li{display:grid;grid-template-columns:20px 1fr;column-gap:10px;font-size:.95rem;line-height:1.35}
+.inc li::before{content:"✓";grid-row:span 2;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--ok-soft);color:var(--ok);font:900 .7rem/1 var(--font-display)}
+.inc li b{color:var(--ink)}
+.inc li span{color:var(--ink-2);font-size:.86rem}
+@media (max-width:820px){.includes{grid-template-columns:1fr}}
+.split{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:4px 0 12px}
+.split .s{border-radius:10px;padding:8px 6px;text-align:center;color:#fff;font-size:.78rem;font-weight:600;line-height:1.2;min-width:0}
+.split .s b{display:block;font:900 1.1rem/1.1 var(--font-display)}
+.split .a{background:var(--aloe)} .split .h{background:var(--hidra)} .split .l{background:var(--limo)} .split .n{background:var(--navy)}
+.notinc{font-size:.9rem;color:var(--ink-2);margin-top:12px}
+
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.terms div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.92rem;min-width:0}
+.terms b{display:block;color:var(--navy);font-family:var(--font-display)}
+@media (max-width:820px){.terms{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.terms{grid-template-columns:1fr}}
+
+.next{margin-top:40px;background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:20px;padding:28px}
+.next h2{color:#fff}
+.next ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:n}
+.next li{background:rgba(255,255,255,.1);border-radius:14px;padding:16px;counter-increment:n;min-width:0}
+.next li::before{content:counter(n);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--navy);font:900 .95rem/1 var(--font-display);margin-bottom:8px}
+.next li b{display:block}
+.next li span{font-size:.92rem;opacity:.9}
+@media (max-width:820px){.next ol{grid-template-columns:1fr}}
+
+
+/* Introducción */
+.intro{padding-block:44px 52px;background:#fff}
+.intro-card{display:grid;grid-template-columns:10px 1fr;gap:0;background:var(--bg-soft);border-radius:20px;overflow:hidden}
+.intro-stripe{display:grid;grid-template-rows:repeat(3,1fr)}
+.intro-stripe span:nth-child(1){background:var(--aloe)} .intro-stripe span:nth-child(2){background:var(--hidra-blue)} .intro-stripe span:nth-child(3){background:var(--limo-yellow)}
+.intro-body{padding:clamp(22px,4vw,36px)}
+.intro-lead{font:800 clamp(1.5rem,4vw,2.25rem)/1.2 var(--font-display);color:var(--navy);margin:0 0 16px;max-width:30ch}
+.intro-p{font-size:1.12rem;color:var(--ink-2);margin:0;max-width:62ch}
+.mini-title{margin:40px 0 0;font-size:1.15rem;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.mini-title span{font:500 .9rem/1.2 var(--font-body);color:var(--ink-2)}
+.toc{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.toc a{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:16px;padding:18px;min-width:0;transition:border-color .15s,transform .15s,box-shadow .15s}
+.toc a:hover,.toc a:focus-visible{border-color:var(--navy-2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(14,42,92,.12)}
+.toc i{font-style:normal;display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;font:900 1rem/1 var(--font-display);margin-bottom:6px}
+.toc b{font:800 1.05rem/1.25 var(--font-display);color:var(--navy)}
+.toc span{font-size:.88rem;color:var(--ink-2)}
+.toc em{font-style:normal;margin-top:auto;padding-top:10px;font-weight:700;font-size:.9rem;color:var(--navy-2)}
+@media (max-width:900px){.toc{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.toc{grid-template-columns:1fr}}
+
+/* Elementos clicables */
+.hint{display:inline-flex;align-items:center;gap:8px;margin:14px 0 0;background:var(--hidra-soft);color:var(--hidra-ink);font-weight:700;font-size:.92rem;padding:8px 14px;border-radius:999px}
+.hand{display:inline-block;animation:tap 1.6s ease-in-out infinite}
+@keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.hand,.totop{animation:none}}
+.tab{display:inline-flex;align-items:center;gap:10px;padding:8px 18px 8px 10px;box-shadow:0 2px 0 rgba(14,42,92,.08);transition:transform .15s,box-shadow .15s,border-color .15s}
+.tab img{height:44px;width:auto}
+.tab:hover{border-color:var(--navy-2);transform:translateY(-2px);box-shadow:0 8px 18px rgba(14,42,92,.12)}
+.tab[aria-selected="true"]{box-shadow:0 8px 18px rgba(14,42,92,.18)}
+.tab[aria-selected="true"]::after{content:"✓";font-size:.85rem}
+.nextcap{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;margin-top:40px;padding:18px 22px;border-radius:16px;background:var(--navy);color:#fff;text-decoration:none;transition:background .15s}
+.nextcap:hover,.nextcap:focus-visible{background:var(--navy-2)}
+.nextcap span{font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;opacity:.8;font-weight:700}
+.nextcap b{font:800 1.15rem/1.2 var(--font-display)}
+.nextcap i{font-style:normal;margin-left:auto;font:900 1.4rem/1 var(--font-display);transition:transform .15s}
+.nextcap:hover i{transform:translateX(4px)}
+.btn{transition:background .15s,transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--navy);color:#fff;text-decoration:none;font:900 1.2rem/1 var(--font-display);box-shadow:0 8px 20px rgba(14,42,92,.3)}
+.totop span{font:700 .6rem/1 var(--font-body);text-transform:uppercase;letter-spacing:.06em;margin-top:-8px}
+.totop:hover{background:var(--navy-2)}
+.totop{opacity:0;pointer-events:none;transition:opacity .2s}
+.totop.show{opacity:1;pointer-events:auto}
+@media (max-width:620px){.totop{width:46px;height:46px;font-size:1rem}.totop span{display:none}}
+.nav a.chap{border:1px solid rgba(255,255,255,.25)}
+
+/* Negocios */
+.b2b{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.biz{background:#fff;border:1px solid var(--line);border-top:5px solid var(--navy);border-radius:16px;padding:18px 20px;min-width:0}
+.biz.now{border-top-color:var(--ok)}
+.biz-tag{display:inline-block;font:800 .7rem/1 var(--font-display);text-transform:uppercase;letter-spacing:.1em;padding:6px 10px;border-radius:999px;background:var(--hidra-soft);color:var(--hidra-ink)}
+.biz.now .biz-tag{background:var(--ok-soft);color:var(--ok)}
+.biz h4{margin:10px 0 4px;font-size:1.15rem}
+.biz p{margin:0 0 10px;font-size:.93rem;color:var(--ink-2)}
+.biz ul{margin:0;padding-left:1.1em;display:grid;gap:4px;font-size:.93rem}
+@media (max-width:900px){.b2b{grid-template-columns:1fr}}
+.terms .span2{grid-column:span 2}
+.terms div{line-height:1.45}
+.terms b{margin-bottom:4px}
+@media (max-width:520px){.terms .span2{grid-column:auto}}
+/* Navegación entre capítulos */
+.capnav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:36px;padding-top:20px;border-top:1px solid var(--line)}
+.capnav a{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:.92rem;min-width:0;transition:background .15s,border-color .15s}
+.capnav i{font-style:normal;font-weight:900}
+.capnav span{font-weight:600;opacity:.85}
+.capnav b{font-weight:700}
+.capnav .prev{background:#fff;border:1.5px solid var(--line);color:var(--navy)}
+.capnav .prev:hover{border-color:var(--navy-2)}
+.capnav .next{background:var(--navy);color:#fff;border:1.5px solid var(--navy);margin-left:auto}
+.capnav .next:hover{background:var(--navy-2)}
+/* Intro */
+.intro-body{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(20px,4vw,40px);align-items:center}
+.intro-text{min-width:0}
+.intro-prop{background:#fff;border-radius:14px;padding:18px 20px;min-width:0}
+.intro-prop h3{margin:0 0 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-2);font-weight:700}
+.intro-prop ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.intro-prop li{display:grid;grid-template-columns:22px 1fr;gap:10px;font-size:.98rem;line-height:1.35;color:var(--ink)}
+.intro-prop li::before{content:"";width:10px;height:10px;margin:6px 0 0 6px;border-radius:50%;background:var(--navy-2)}
+@media (max-width:820px){.intro-body{grid-template-columns:1fr}}
+.jump{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px;padding:14px 16px;border:1.5px dashed #C9D3E3;border-radius:14px}
+.jump-lbl{font:800 .78rem/1.2 var(--font-display);text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+.jump-btns{display:flex;flex-wrap:wrap;gap:8px}
+.jump-btns a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;background:var(--navy);border-radius:999px;padding:8px 14px 8px 8px;font-size:.9rem;font-weight:600;transition:background .15s,transform .15s}
+.jump-btns a:hover,.jump-btns a:focus-visible{background:var(--navy-2);transform:translateY(-1px)}
+.jump-btns i{font-style:normal;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#fff;color:var(--navy);font:800 .75rem/1 var(--font-display)}
+.jump-btns em{font-style:normal;opacity:.8}
+.intro .summary{margin:16px 0 0}
+/* Cierre */
+.closing{margin-top:28px;padding:28px clamp(18px,4vw,32px);border:1px solid var(--line);border-radius:20px;background:var(--bg-soft)}
+.closing-lead{font:800 clamp(1.35rem,3.4vw,1.8rem)/1.2 var(--font-display);color:var(--navy);margin:0 0 8px}
+
+.outcomes{margin:12px 0 18px;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.outcomes li{background:#fff;border-radius:14px;padding:14px 16px 14px 46px;position:relative;font-size:.93rem;color:var(--ink-2);min-width:0}
+.outcomes li::before{content:"✓";position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:50%;background:var(--ok-soft);color:var(--ok);display:grid;place-items:center;font:900 .75rem/1 var(--font-display)}
+.outcomes b{display:block;font:800 1.02rem/1.25 var(--font-display);color:var(--navy);margin-bottom:2px}
+@media (max-width:720px){.outcomes{grid-template-columns:1fr}}
+.closing-p{margin:0;font-weight:600;color:var(--ink)}
+.flex-note{margin:10px 0 0;font-size:.92rem;background:var(--hidra-soft);color:#08486B;border-radius:10px;padding:10px 14px}
+@media (max-width:820px){.nav a.chap span{display:inline;font-size:.8rem}.nav a.chap{padding:7px 10px}.brand span{display:none}}
+@media (max-width:420px){.brand{display:none}.nav ol{margin-left:0}}
+
+footer{padding-block:28px;text-align:center;font-size:.86rem;color:var(--ink-2);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio">COOPER <span>Bebidas</span></a>
+    <ol>
+      <li><a class="chap" href="#cap1"><i>1</i><span>Lo que ya tiene</span></a></li>
+      <li><a class="chap" href="#cap2"><i>2</i><span>Dónde está hoy</span></a></li>
+      <li><a class="chap" href="#cap3"><i>3</i><span>Próximos 90 días</span></a></li>
+      <li><a class="chap" href="#cap4"><i>4</i><span>Cómo empezamos</span></a></li>
+    </ol>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio" aria-label="Portada">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Propuesta para DESCOESA</div>
+      <h1>Que Cooper se reconozca como marca y <em>más negocios la vendan</em></h1>
+      <p class="lead">Plan de 3 meses para Aloe, Hidra y Limonadas Cooper.</p>
+      <p class="meta">Para Mario Mendoza · Noviembre de 2026</p>
+      <a class="btn" href="#resumen">Ver la propuesta ↓</a>
+    </div>
+    <div>
+      <div class="shelf" aria-label="Las 11 bebidas Cooper">
+        <img src="assets/aloe-original.webp" alt="Aloe Cooper Original">
+        <img src="assets/aloe-coco.webp" alt="Aloe Cooper Coco">
+        <img src="assets/aloe-fresakiwi.webp" alt="Aloe Cooper Fresa Kiwi">
+        <img src="assets/aloe-sandia.webp" alt="Aloe Cooper Sandía">
+        <img src="assets/hidra-mora.webp" alt="Hidra Cooper Mora Azul">
+        <img src="assets/hidra-fresakiwi.webp" alt="Hidra Cooper Fresa Kiwi">
+        <img src="assets/hidra-coco.webp" alt="Hidra Cooper Coco">
+        <img class="tall" src="assets/limo-natural.webp" alt="Limonada Cooper Natural">
+        <img class="tall" src="assets/limo-curcuma.webp" alt="Limonada Cooper Cúrcuma y Jengibre">
+        <img class="tall" src="assets/limo-rosa.webp" alt="Limonada Cooper Rosa">
+        <img class="tall" src="assets/limo-matcha.webp" alt="Limonada Cooper Matcha Menta">
+      </div>
+      <div class="shelf-caption"><span>Aloe</span><span>Hidra</span><span>Limonadas</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="resumen" aria-labelledby="intro-t">
+  <div class="wrap">
+    <div class="intro-card">
+      <div class="intro-stripe" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="intro-body">
+        <div class="intro-text">
+          <h2 id="intro-t" class="intro-lead">Cooper tiene buen producto y buen precio. Lo que le falta es que la gente y los negocios la vean.</h2>
+          <p class="intro-p">Revisamos las tiendas en línea, las redes de Cooper y las de su competencia. Esto es lo que encontramos y lo que proponemos para los próximos 3 meses.</p>
+        </div>
+        <div class="intro-prop">
+          <h3>Lo que proponemos</h3>
+          <ul>
+            <li>Una cuenta "Cooper Bebidas" para las tres bebidas</li>
+            <li>Un WhatsApp de pedidos para tiendas y mayoristas</li>
+            <li>Publicidad pareja para ver cuál bebida crece más</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <nav class="jump" aria-label="Capítulos">
+      <span class="jump-lbl">Ir a un capítulo</span>
+      <div class="jump-btns">
+        <a href="#cap1"><i>1</i>Lo que ya tiene<em aria-hidden="true">→</em></a>
+        <a href="#cap2"><i>2</i>Dónde está hoy<em aria-hidden="true">→</em></a>
+        <a href="#cap3"><i>3</i>Próximos 90 días<em aria-hidden="true">→</em></a>
+        <a href="#cap4"><i>4</i>Cómo empezamos<em aria-hidden="true">→</em></a>
+      </div>
+    </nav>
+
+    <div class="summary">
+      <div class="sum f"><span class="tag">Fortaleza</span><strong>Buen precio</strong><p>Hidra es la hidratante sin azúcar más barata del súper.</p></div>
+      <div class="sum p"><span class="tag">Problema</span><strong>Redes calladas</strong><p>Aloe e Hidra no publican desde junio. Las Limonadas no tienen redes.</p></div>
+      <div class="sum o"><span class="tag">Oportunidad</span><strong>Pocos anuncios</strong><p>En aloe y limonada hay 6 anuncios en total. En hidratantes, más de 270.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO 1 ============ -->
+<section class="band soft" id="cap1" aria-labelledby="cap1-t">
+  <div class="wrap">
+    <div class="cap-head"><div class="cap-num">1</div><div><div class="eyebrow">Capítulo 1</div><h2 id="cap1-t">Lo que Cooper ya tiene</h2></div></div>
+    <div class="reviewed tabular">
+      <div><b>11</b><span>sabores en 3 bebidas</span></div>
+      <div><b>17</b><span>marcas de la competencia revisadas</span></div>
+      <div><b>10</b><span>cuentas de redes comparadas</span></div>
+      <div><b>2</b><span>tiendas en línea revisadas</span></div>
+      <div><b>897</b><span>seguidores en la cuenta de Aloe · 351 en la de Hidra</span></div>
+    </div>
+
+    <div class="lines">
+      <article class="line aloe">
+        <div class="line-top"><img src="assets/aloe-original.webp" alt=""><img src="assets/aloe-coco.webp" alt=""><img src="assets/aloe-fresakiwi.webp" alt=""><img src="assets/aloe-sandia.webp" alt=""></div>
+        <div class="line-body">
+          <h3>Aloe Cooper</h3>
+          <div class="chips"><span class="chip">Original</span><span class="chip">Coco</span><span class="chip">Fresa Kiwi</span><span class="chip">Sandía</span></div>
+          <dl class="tabular"><dt>Tamaño</dt><dd>500 ml</dd><dt>Selectos</dt><dd>$1.89</dd><dt>Walmart</dt><dd>$1.75</dd></dl>
+        </div>
+      </article>
+      <article class="line hidra">
+        <div class="line-top"><img src="assets/hidra-mora.webp" alt=""><img src="assets/hidra-fresakiwi.webp" alt=""><img src="assets/hidra-coco.webp" alt=""></div>
+        <div class="line-body">
+          <h3>Hidra Cooper</h3>
+          <div class="chips"><span class="chip">8 iones</span><span class="chip">0 azúcar</span><span class="chip">0 calorías</span></div>
+          <dl class="tabular"><dt>Tamaño</dt><dd>502 ml</dd><dt>Selectos</dt><dd>$1.95</dd><dt>Walmart</dt><dd>$1.85</dd></dl>
+        </div>
+      </article>
+      <article class="line limo">
+        <div class="line-top"><img src="assets/limo-natural.webp" alt=""><img src="assets/limo-curcuma.webp" alt=""><img src="assets/limo-rosa.webp" alt=""><img src="assets/limo-matcha.webp" alt=""></div>
+        <div class="line-body">
+          <h3>Limonadas Cooper</h3>
+          <div class="chips"><span class="chip">100% limón natural</span><span class="chip">Matcha Menta</span><span class="chip">Cúrcuma</span></div>
+          <dl class="tabular"><dt>Tamaño</dt><dd>630 ml</dd><dt>Selectos</dt><dd>$1.95</dd><dt>Walmart</dt><dd>No disponible</dd></dl>
+        </div>
+      </article>
+    </div>
+
+    <div class="pluses">
+      <span>Botellas con estilo propio</span>
+      <span>Más de 300 fotos y videos ya hechos</span>
+      <span>Vendedores y distribución de DESCOESA</span>
+      <span>Precio competitivo</span>
+    </div>
+    <nav class="capnav" aria-label="Navegación entre capítulos">
+      <a class="prev" href="#resumen"><i aria-hidden="true">←</i><b>Resumen</b></a>
+      <a class="next" href="#cap2"><span>Siguiente:</span><b>Dónde está hoy</b><i aria-hidden="true">→</i></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO 2 ============ -->
+<section class="band" id="cap2" aria-labelledby="cap2-t">
+  <div class="wrap">
+    <div class="cap-head"><div class="cap-num">2</div><div><div class="eyebrow">Capítulo 2</div><h2 id="cap2-t">Dónde está hoy</h2></div></div>
+
+    <h3>Lo más urgente</h3>
+    <div class="issues">
+      <div class="issue"><div class="big">5 meses</div><h4>sin publicar en redes</h4></div>
+      <div class="issue"><div class="big">0</div><h4>canales para que una tienda haga pedidos</h4></div>
+      <div class="issue"><div class="big">Hidra</div><h4>no aparece en Selectos ni en Walmart en línea</h4></div>
+    </div>
+    <div class="minor">
+      <span>En Walmart, "Cooper" se mezcla con toallas húmedas</span>
+      <span>Selectos dice "5000 ml" en el Aloe Original</span>
+      <span>Limonadas solo en Selectos</span>
+      <span>3 a 8 "me gusta" por publicación</span>
+    </div>
+
+    <div class="sub">
+      <h3>¿Quién hace publicidad en redes hoy?</h3>
+      <p class="small">Anuncios activos en Facebook e Instagram en El Salvador, 25 de noviembre de 2026.</p>
+      <div class="adwar">
+        <ul class="bars tabular">
+          <li class="bar"><span class="nm">Gatorade<small>Hidratante</small></span><span class="track"><span class="fill" style="width:100%">115</span></span></li>
+          <li class="bar"><span class="nm">Electrolit<small>Hidratante</small></span><span class="track"><span class="fill" style="width:91%">105</span></span></li>
+          <li class="bar"><span class="nm">Electrolife Zero<small>Hidratante sin azúcar</small></span><span class="track"><span class="fill" style="width:45%">52</span></span></li>
+          <li class="bar"><span class="nm">Dr. Juice<small>Refrescos naturales y limonadas</small></span><span class="track"><span class="fill" style="width:3%">4</span></span></li>
+          <li class="bar"><span class="nm">OKF<small>Aloe · desde su página de Guatemala</small></span><span class="track"><span class="fill" style="width:2%">2</span></span></li>
+          <li class="bar"><span class="nm">Otras de aloe y limonada<small>My Aloe, Maqui, Naturalísimo…</small></span><span class="track"><span class="zero">0 anuncios</span></span></li>
+          <li class="bar us"><span class="nm">Cooper<small>Las tres bebidas</small></span><span class="track"><span class="zero">0 anuncios</span></span></li>
+        </ul>
+        <div class="verdict">
+          <div class="hot"><b>Hidratantes: pelea fuerte</b>Tres marcas con más de 270 anuncios.</div>
+          <div class="free"><b>Aloe y limonada: pocos anuncios</b>6 en total entre todas las marcas. Con constancia, Cooper puede hacerse notar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>La competencia, bebida por bebida</h3>
+      <p class="hint"><span class="hand" aria-hidden="true">👆</span> Toca cada bebida para ver su comparación</p>
+      <div class="tabs" role="tablist" aria-label="Elegir bebida">
+        <button class="tab aloe" role="tab" id="t-aloe" aria-controls="p-aloe" aria-selected="true"><img src="assets/aloe-original.webp" alt=""><span>Aloe</span></button>
+        <button class="tab hidra" role="tab" id="t-hidra" aria-controls="p-hidra" aria-selected="false" tabindex="-1"><img src="assets/hidra-mora.webp" alt=""><span>Hidra</span></button>
+        <button class="tab limo" role="tab" id="t-limo" aria-controls="p-limo" aria-selected="false" tabindex="-1"><img src="assets/limo-natural.webp" alt=""><span>Limonadas</span></button>
+      </div>
+
+      <div class="panel aloe" role="tabpanel" id="p-aloe" aria-labelledby="t-aloe">
+        <div class="panel-grid">
+          <div>
+            <h4>Precio de la botella de 500 ml</h4>
+            <ul class="bars tabular">
+              <li class="bar"><span class="nm">Salvaloe</span><span class="track"><span class="fill" style="width:61%">$1.50</span></span></li>
+              <li class="bar"><span class="nm">Farmer's Aloe</span><span class="track"><span class="fill" style="width:71%">$1.75</span></span></li>
+              <li class="bar us"><span class="nm">Aloe Cooper</span><span class="track"><span class="fill" style="width:78%">$1.90</span></span></li>
+              <li class="bar"><span class="nm">OKF</span><span class="track"><span class="fill" style="width:92%">$2.25</span></span></li>
+              <li class="bar"><span class="nm">Del Monte</span><span class="track"><span class="fill" style="width:92%">$2.25</span></span></li>
+              <li class="bar"><span class="nm">Kerns</span><span class="track"><span class="fill" style="width:100%">$2.45</span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Redes en El Salvador</h4>
+            <table class="soc">
+              <thead><tr><th>Marca</th><th>Seguidores</th><th>Anuncios</th></tr></thead>
+              <tbody>
+                <tr class="us"><td>Aloe Cooper</td><td>897</td><td class="no">0</td></tr>
+                <tr><td>My Aloe<br><small class="small">+2.4 mil en Facebook</small></td><td>696</td><td class="no">0</td></tr>
+                <tr><td>OKF</td><td>Página de Guatemala</td><td class="yes">2</td></tr>
+                <tr><td>Del Monte, Salvaloe</td><td>Sin cuenta local</td><td class="no">0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="take">En Instagram, Cooper ya es la marca de aloe más seguida. En Facebook va adelante My Aloe. Solo OKF anuncia, y poco: hay espacio para ganar.</p>
+      </div>
+
+      <div class="panel hidra" role="tabpanel" id="p-hidra" aria-labelledby="t-hidra" hidden>
+        <div class="panel-grid">
+          <div>
+            <h4>Precio de una botella</h4>
+            <ul class="bars tabular">
+              <li class="bar us"><span class="nm">Hidra Cooper<small>502 ml · 0 azúcar</small></span><span class="track"><span class="fill" style="width:80%">$1.95</span></span></li>
+              <li class="bar"><span class="nm">Oralite<small>570 ml</small></span><span class="track"><span class="fill" style="width:94%">$2.30</span></span></li>
+              <li class="bar"><span class="nm">Electrolit<small>625 ml</small></span><span class="track"><span class="fill" style="width:96%">$2.35</span></span></li>
+              <li class="bar"><span class="nm">Suerox<small>630 ml · sin azúcar</small></span><span class="track"><span class="fill" style="width:98%">$2.40</span></span></li>
+              <li class="bar"><span class="nm">Electrolife Zero<small>625 ml · sin azúcar</small></span><span class="track"><span class="fill" style="width:100%">$2.45</span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Redes en El Salvador</h4>
+            <table class="soc">
+              <thead><tr><th>Marca</th><th>Seguidores</th><th>Anuncios</th></tr></thead>
+              <tbody>
+                <tr><td>Gatorade</td><td>22.1 mil</td><td class="yes">115</td></tr>
+                <tr><td>Electrolit</td><td>15.8 mil</td><td class="yes">105</td></tr>
+                <tr><td>Suerox (por su distribuidor)</td><td>14.4 mil</td><td class="no">0</td></tr>
+                <tr><td>Electrolife Zero</td><td>2.6 mil</td><td class="yes">52</td></tr>
+                <tr class="us"><td>Hidra Cooper</td><td>351</td><td class="no">0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="take">Aquí no se gana gastando más. Se gana con lo que nadie más ofrece junto: 0 azúcar y el mejor precio.</p>
+      </div>
+
+      <div class="panel limo" role="tabpanel" id="p-limo" aria-labelledby="t-limo" hidden>
+        <div class="panel-grid">
+          <div>
+            <h4>Tamaño de la botella</h4>
+            <ul class="bars tabular">
+              <li class="bar"><span class="nm">Dr Juice<small>$1.80</small></span><span class="track"><span class="fill" style="width:56%">350 ml</span></span></li>
+              <li class="bar"><span class="nm">Naturalísimo<small>$1.90</small></span><span class="track"><span class="fill" style="width:68%">430 ml</span></span></li>
+              <li class="bar us"><span class="nm">Limonada Cooper<small>$1.95</small></span><span class="track"><span class="fill" style="width:100%">630 ml</span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Redes en El Salvador</h4>
+            <table class="soc">
+              <thead><tr><th>Marca</th><th>Seguidores</th><th>Anuncios</th></tr></thead>
+              <tbody>
+                <tr><td>Dr. Juice</td><td>20.8 mil</td><td class="yes">4</td></tr>
+                <tr><td>Maqui</td><td>970</td><td class="no">0</td></tr>
+                <tr><td>Naturalísimo</td><td>441</td><td class="no">0</td></tr>
+                <tr class="us"><td>Limonadas Cooper</td><td>Sin cuenta</td><td class="no">0</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="take">Dr. Juice es el rival a vigilar: publica seguido y anuncia. Pero ninguna limonada del súper es tan grande como Cooper (630 ml) ni tiene sabores como Matcha Menta.</p>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Lo que hacen bien y podemos aprender</h3>
+      <div class="learn">
+        <div><b>Publican seguido</b><span>Gatorade lleva más de 2,000 publicaciones. Una cuenta activa da confianza.</span></div>
+        <div><b>Se suben al deporte</b><span>Electrolit patrocina carreras y tiene un "Atleta del mes". Ideal para Hidra.</span></div>
+        <div><b>El distribuidor empuja</b><span>Diszasa muestra Suerox en su propia cuenta. DESCOESA puede hacer lo mismo.</span></div>
+      </div>
+    </div>
+    <p class="source">Fuentes: tiendas en línea de Súper Selectos y Walmart, Instagram y la biblioteca de anuncios de Facebook (25 de noviembre de 2026). No incluimos refrescos con gas porque no compiten directamente con Cooper.</p>
+    <nav class="capnav" aria-label="Navegación entre capítulos">
+      <a class="prev" href="#cap1"><i aria-hidden="true">←</i><b>Lo que Cooper ya tiene</b></a>
+      <a class="next" href="#cap3"><span>Siguiente:</span><b>Los próximos 90 días</b><i aria-hidden="true">→</i></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO 3 ============ -->
+<section class="band soft" id="cap3" aria-labelledby="cap3-t">
+  <div class="wrap">
+    <div class="cap-head"><div class="cap-num">3</div><div><div class="eyebrow">Capítulo 3</div><h2 id="cap3-t">Los próximos 90 días</h2></div></div>
+
+    <div class="idea">
+      <div class="house" aria-hidden="true"><div class="roof">COOPER BEBIDAS</div><div class="rooms"><span>Aloe</span><span>Hidra</span><span>Limonada</span></div></div>
+      <div>
+        <h3>Una sola casa, tres personalidades</h3>
+        <p>Una cuenta para las tres bebidas, cada una con sus colores. Si una despega, a los 90 días le abrimos su propia cuenta.</p>
+        <p class="small">Si DESCOESA tiene acceso a @cooper.aloevera, le cambiamos el nombre y se quedan sus 897 seguidores. Si no, abrimos la cuenta desde cero.</p>
+      </div>
+    </div>
+
+    <div class="months">
+      <div class="month"><span class="n">1</span><h3>Ordenar la casa</h3>
+        <ul><li>Cuenta "Cooper Bebidas" lista</li><li>Un estilo para cada bebida</li><li>WhatsApp de pedidos con catálogo</li><li>Corregir los catálogos de los súper</li></ul></div>
+      <div class="month"><span class="n">2</span><h3>Darse a conocer</h3>
+        <ul><li>$50 de publicidad para cada bebida</li><li>$50 en anuncios para tiendas y mayoristas</li><li>Un mensaje claro por bebida</li><li>Que Cooper aparezca en Google</li></ul></div>
+      <div class="month"><span class="n">3</span><h3>Quedarnos con lo que funciona</h3>
+        <ul><li>Más publicidad a la bebida ganadora</li><li>Informe de los 3 meses</li><li>Decidir si merece cuenta propia</li></ul></div>
+    </div>
+
+    <div class="sub">
+      <h3>A qué negocios vamos a llegar</h3>
+      <div class="b2b">
+        <div class="biz">
+          <span class="biz-tag">Nuevos</span>
+          <h4>Mayoristas</h4>
+          <p>Supermercados y negocios que compran y venden por mayor.</p>
+          <ul><li>Anuncios dirigidos a mayoristas</li><li>Publicaciones con precios por volumen</li><li>Pedidos por WhatsApp a los vendedores</li></ul>
+        </div>
+        <div class="biz">
+          <span class="biz-tag">Nuevos</span>
+          <h4>Tiendas y minisúper</h4>
+          <p>Negocios de barrio que pueden tener Cooper en su refrigerador.</p>
+          <ul><li>Catálogo de las 11 bebidas en WhatsApp</li><li>Por qué vender Cooper, en pocas palabras</li><li>Pedido fácil, sin llamadas</li></ul>
+        </div>
+        <div class="biz now">
+          <span class="biz-tag">Donde ya está</span>
+          <h4>Que vendan más</h4>
+          <p>Selectos, Walmart, Maxi Despensa, Superea y Farmacias San Nicolás.</p>
+          <ul><li>Publicaciones que llevan gente a comprar ahí</li><li>Más sabores en el anaquel</li><li>Limonadas e Hidra también en Walmart</li></ul>
+        </div>
+      </div>
+      <p class="small" style="margin-top:8px">Así crece el pedido de cada negocio: más sabores, más cajas y más puntos de venta.</p>
+    </div>
+
+    <div class="sub">
+      <h3>Qué publicamos cada mes</h3>
+      <p class="small">8 publicaciones en Instagram y Facebook: 3 videos (uno por bebida) y 5 posts. Un video es un video corto vertical (reel); un post es una imagen o un carrusel.</p>
+      <p class="flex-note"><b>Estructura inicial.</b> El reparto se ajusta cada mes según la bebida en la que decidamos enfocarnos y lo que muestren los resultados.</p>
+      <div class="mix tabular">
+        <div class="mx a"><b>1 + 1</b><span>Aloe<br>video + post</span></div>
+        <div class="mx h"><b>1 + 1</b><span>Hidra<br>video + post</span></div>
+        <div class="mx l"><b>1 + 2</b><span>Limonadas<br>video + posts</span></div>
+        <div class="mx n"><b>1</b><span>Para tu negocio<br>post</span></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Qué resultados podemos esperar en 90 días</h3>
+      <div class="goals tabular">
+        <div class="g"><h4>Publicaciones</h4><div class="from">Hoy: 0 desde junio</div><div class="to">24</div></div>
+        <div class="g"><h4>Seguidores de Cooper Bebidas*</h4><div class="from">Hoy: 897 (cuenta de Aloe)</div><div class="to">1,200 a 1,500</div></div>
+        <div class="g"><h4>Negocios que escriben</h4><div class="from">Hoy: sin canal</div><div class="to">15 a 40</div></div>
+        <div class="g"><h4>Personas alcanzadas por bebida, al mes</h4><div class="from">Con $50 de publicidad</div><div class="to">8 mil a 20 mil</div></div>
+      </div>
+      <div class="disclaimer">
+        <b>Son estimaciones, no resultados garantizados.</b> Pueden variar por factores externos: la competencia, la temporada, cambios de Facebook e Instagram, que haya producto en tienda, el precio y la rapidez de respuesta de los vendedores.
+      </div>
+      <p class="small" style="margin-top:8px">* Si hay que abrir la cuenta desde cero, la meta es de 300 a 600 seguidores. Las cifras se revisan con datos reales al final del mes 1.</p>
+    </div>
+    <nav class="capnav" aria-label="Navegación entre capítulos">
+      <a class="prev" href="#cap2"><i aria-hidden="true">←</i><b>Dónde está hoy</b></a>
+      <a class="next" href="#cap4"><span>Siguiente:</span><b>Cómo empezamos</b><i aria-hidden="true">→</i></a>
+    </nav>
+  </div>
+</section>
+
+<!-- ============ CAPÍTULO 4 ============ -->
+<section class="band" id="cap4" aria-labelledby="cap4-t">
+  <div class="wrap">
+    <div class="cap-head"><div class="cap-num">4</div><div><div class="eyebrow">Capítulo 4</div><h2 id="cap4-t">Cómo empezamos</h2></div></div>
+
+    <h3>Inversión: dos pagos distintos</h3>
+    <div class="two-pay">
+      <div class="pay fee">
+        <div class="who">1 · Nuestro trabajo</div>
+        <span class="badge">Primeros 3 meses</span>
+        <div class="price"><b>$400</b><span>al mes</span></div>
+        <p>Precio especial en consideración a la buena relación entre DESCOESA y nuestro equipo. Sin costo de arranque.</p>
+        <div class="later">A partir del mes 4 se ajusta a la tarifa regular.</div>
+      </div>
+      <div class="plus" aria-hidden="true">+</div>
+      <div class="pay ads-pay">
+        <div class="who">2 · Publicidad</div>
+        <div class="price"><b>$200</b><span>al mes, sugerido</span></div>
+        <div class="split tabular">
+          <span class="s a"><b>$50</b>Aloe</span>
+          <span class="s h"><b>$50</b>Hidra</span>
+          <span class="s l"><b>$50</b>Limonadas</span>
+          <span class="s n"><b>$50</b>Negocios</span>
+        </div>
+        <p>Se paga <b>directo a Facebook e Instagram</b> con la tarjeta de DESCOESA. Nosotros no manejamos ese dinero.</p>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>Qué incluye nuestro trabajo</h3>
+      <div class="includes">
+        <div class="inc"><h3>Plan y contenido</h3><ul>
+          <li><b>Plan mensual</b><span>Temas y objetivo de cada publicación</span></li>
+          <li><b>8 publicaciones al mes</b><span>3 videos y 5 imágenes o carruseles. El reparto se ajusta según la bebida en foco</span></li>
+          <li><b>Textos de cada publicación</b><span>Que invitan a comprar o a pedir por WhatsApp</span></li>
+          <li><b>Guiones para los videos</b><span>Lo que se dice y lo que sale en pantalla</span></li>
+          <li><b>Fechas especiales</b><span>Planificadas con tiempo</span></li>
+        </ul></div>
+        <div class="inc"><h3>Diseño, video y publicación</h3><ul>
+          <li><b>Estilo propio por bebida</b><span>Plantillas para Aloe, Hidra y Limonadas</span></li>
+          <li><b>Diseño gráfico</b><span>Pensado para verse bien en el perfil</span></li>
+          <li><b>Grabación y edición de videos</b><span>Grabación incluida en los meses 1 a 3</span></li>
+          <li><b>Publicación</b><span>En Instagram y Facebook, en los días del plan</span></li>
+          <li><b>Revisiones y cambios</b><span>Incluidos</span></li>
+        </ul></div>
+        <div class="inc"><h3>Cuenta y negocios</h3><ul>
+          <li><b>Cuenta "Cooper Bebidas"</b><span>Configuración, secciones fijas y enlaces</span></li>
+          <li><b>WhatsApp de pedidos</b><span>Catálogo y respuestas listas para los vendedores</span></li>
+          <li><b>Contenido para negocios</b><span>Por qué vender Cooper, precios por volumen y cómo pedir</span></li>
+          <li><b>Apoyo a los puntos de venta</b><span>Publicaciones que llevan gente a comprar donde ya está Cooper</span></li>
+          <li><b>Página de DESCOESA</b><span>Cooper Bebidas enlazada desde la web y redes de DESCOESA</span></li>
+        </ul></div>
+        <div class="inc"><h3>Publicidad y resultados</h3><ul>
+          <li><b>Creación de anuncios</b><span>Por bebida y para tiendas y mayoristas</span></li>
+          <li><b>Manejo de la publicidad</b><span>Ajustes para que cada dólar rinda más</span></li>
+          <li><b>Monitoreo de publicaciones</b><span>Qué funciona y qué mejorar</span></li>
+          <li><b>Reporte mensual</b><span>Qué bebida va ganando y cuántos negocios escribieron</span></li>
+          <li><b>Reunión mensual</b><span>Para decidir juntos el siguiente paso</span></li>
+        </ul></div>
+        <div class="inc wide"><h3>Que encuentren a Cooper en Google y en la inteligencia artificial</h3><ul>
+          <li><b>Textos pensados para Google</b><span>Para aparecer cuando alguien busca "bebida de aloe" o "limonada" en El Salvador</span></li>
+          <li><b>Respuestas a las preguntas de la gente</b><span>Dónde comprar, precios y sabores, escritas para que Google y asistentes como ChatGPT las muestren</span></li>
+          <li><b>Los mismos datos en todas partes</b><span>Redes, tiendas en línea y directorios dicen lo mismo de Cooper</span></li>
+          <li><b>Revisión de las fichas en los súper</b><span>Nombres, tamaños y fotos correctos en Selectos y Walmart en línea</span></li>
+        </ul><p class="small" style="margin:12px 0 0">En marketing esto se conoce como SEO, AEO y GEO.</p></div>
+      </div>
+      <p class="notinc"><b>Fotos y videos:</b> en los meses 1 a 3, las grabaciones que hagamos nosotros no tienen costo. A partir del mes 4 tendrán un costo adicional. <b>No incluye:</b> el dinero de publicidad, degustaciones, influencers, impresiones, página web ni TikTok.</p>
+    </div>
+
+    <div class="sub">
+      <h3>Condiciones</h3>
+      <div class="terms">
+        <div><b>Pago anticipado</b>Se paga antes de cada período, por transferencia. Puede ser quincenal (el 15 y el último día del mes) o mensual.</div>
+        <div><b>Atrasos</b>Si el pago se atrasa 3 días, pausamos publicaciones y publicidad hasta ponerse al día.</div>
+        <div><b>Aprobación del contenido</b>Cada mes les enviamos el plan y las piezas para su visto bueno antes de publicar.</div>
+        <div><b>Terminar el servicio</b>Cualquiera de las partes puede terminar avisando con 15 días de anticipación.</div>
+        <div><b>Cuentas y accesos</b>Redes, WhatsApp y cuenta de publicidad quedan a nombre de DESCOESA. Si dejamos de trabajar juntos, todo se queda con ustedes.</div>
+        <div><b>Diseños y videos</b>Todo lo que creamos para Cooper es propiedad de DESCOESA.</div>
+        <div class="span2"><b>A partir del mes 4</b>Termina el precio especial: la tarifa se ajusta a la regular y las grabaciones que hagamos tienen un costo adicional. Lo conversamos con tiempo, antes de aplicarlo.</div>
+      </div>
+    </div>
+
+    <div class="next">
+      <h2>Para empezar</h2>
+      <ol>
+        <li><b>Aprobar la propuesta</b><span>Con Mario y su equipo</span></li>
+        <li><b>Accesos y materiales</b><span>Cuentas, logos, artes y fotos</span></li>
+        <li><b>Arrancamos</b><span>Cuenta y WhatsApp listos en la primera semana</span></li>
+      </ol>
+    </div>
+    <div class="closing">
+      <p class="closing-lead">Al terminar los 3 meses, Cooper tendrá:</p>
+      <ul class="outcomes">
+        <li><b>Presencia activa</b>Una cuenta "Cooper Bebidas" publicando de forma constante, con el estilo de cada bebida.</li>
+        <li><b>Un canal de pedidos</b>WhatsApp funcionando con los vendedores de DESCOESA y negocios nuevos que ya escribieron.</li>
+        <li><b>Datos para decidir</b>Qué bebida responde mejor, qué mensajes funcionan y cuánto cuesta cada contacto.</li>
+        <li><b>Un plan para crecer</b>Los siguientes pasos, con números, para invertir donde ya sabemos que funciona.</li>
+      </ul>
+      <p class="closing-p">Nuestro objetivo es que Cooper deje de ser una marca que solo está en el anaquel y se convierta en una que la gente busca y los negocios piden.</p>
+    </div>
+    <nav class="capnav" aria-label="Navegación entre capítulos">
+      <a class="prev" href="#cap3"><i aria-hidden="true">←</i><b>Los próximos 90 días</b></a>
+      <a class="next" href="#inicio"><b>Volver al inicio</b><i aria-hidden="true">↑</i></a>
+    </nav>
+  </div>
+</section>
+</main>
+
+<a class="totop" href="#inicio" aria-label="Volver al inicio">↑<span>Inicio</span></a>
+
+<footer>Propuesta para DESCOESA · Bebidas Cooper · Noviembre de 2026</footer>
+
+<script>
+(function(){
+  /* Capítulo activo en el menú */
+  var links=[].slice.call(document.querySelectorAll('.nav a.chap'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var y=window.scrollY+120,cur=-1;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i});
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+    var tt=document.querySelector('.totop'); if(tt) tt.classList.toggle('show',window.scrollY>600);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* Pestañas de competencia */
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  function select(t){
+    tabs.forEach(function(x){
+      var on=x===t;
+      x.setAttribute('aria-selected',on);
+      x.tabIndex=on?0:-1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){select(t)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d)return;
+      var n=tabs[(i+d+tabs.length)%tabs.length];select(n);n.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
