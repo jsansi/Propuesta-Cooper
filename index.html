@@ -100,6 +100,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .reviewed b{display:block;font:900 1.9rem/1 var(--font-display);color:var(--navy);margin-bottom:6px}
 .reviewed span{font-size:.85rem;color:var(--ink-2);line-height:1.35;display:block}
 @media (max-width:820px){.reviewed{grid-template-columns:repeat(2,1fr)}.reviewed div:last-child{grid-column:1/-1}}
+.reviewed-label{margin:0 0 10px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.reviewed.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:820px){.reviewed.three{grid-template-columns:repeat(3,1fr)}.reviewed.three div:last-child{grid-column:auto}}
 .lines{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .line{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
 .line-top{display:flex;justify-content:center;align-items:flex-end;gap:6px;padding:22px 12px 0;height:196px}
@@ -468,10 +471,10 @@ footer{padding-block:28px;text-align:center;font-size:.86rem;color:var(--ink-2);
     <div class="cap-head"><div class="cap-num">1</div><div><div class="eyebrow">Capítulo 1</div><h2 id="cap1-t">Lo que Cooper ya tiene</h2></div></div>
     <div class="reviewed tabular">
       <div><b>11</b><span>sabores en 3 bebidas</span></div>
-      <div><b>17</b><span>marcas de la competencia revisadas</span></div>
-      <div><b>10</b><span>cuentas de redes comparadas</span></div>
-      <div><b>2</b><span>tiendas en línea revisadas</span></div>
-      <div><b>897</b><span>seguidores en la cuenta de Aloe · 351 en la de Hidra</span></div>
+      <div><b>2</b><span>cadenas donde ya se vende: Súper Selectos y Walmart</span></div>
+      <div><b>$1.75</b><span>desde, el precio más bajo en tienda (Aloe en Walmart)</span></div>
+      <div><b>897</b><span>seguidores en la cuenta de Aloe</span></div>
+      <div><b>351</b><span>seguidores en la cuenta de Hidra</span></div>
     </div>
 
     <div class="lines">
@@ -518,6 +521,12 @@ footer{padding-block:28px;text-align:center;font-size:.86rem;color:var(--ink-2);
 <section class="band" id="cap2" aria-labelledby="cap2-t">
   <div class="wrap">
     <div class="cap-head"><div class="cap-num">2</div><div><div class="eyebrow">Capítulo 2</div><h2 id="cap2-t">Dónde está hoy</h2></div></div>
+    <p class="reviewed-label">Para este capítulo revisamos</p>
+    <div class="reviewed three tabular">
+      <div><b>17</b><span>marcas de la competencia</span></div>
+      <div><b>10</b><span>cuentas de redes</span></div>
+      <div><b>2</b><span>tiendas en línea</span></div>
+    </div>
 
     <h3>Lo más urgente</h3>
     <div class="issues">
